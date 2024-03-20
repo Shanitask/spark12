@@ -5,29 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Company Name</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+   
+    @media only screen and (max-width:768px){
+      .c2{
+        display: none;
+    }
+  }
+</style>
 </head>
 <body>
-  <header class="bg-indigo-900 text-white">
+  <header class="font-weight-900 text-white" style="background-color: rgb(18,14,38);">
     <div class="container flex justify-between items-center px-6 py-4">
-      <div class="text-xl font-bold">Your Company Name</div>
-      <nav class="flex space-x-4">
-        <a href="#" class="hover:text-gray-200">SOLUTIONS</a>
-        <a href="#" class="hover:text-gray-200">FEATURES</a>
-        <a href="#" class="hover:text-gray-200">PRICING</a>
-        <a href="#" class="hover:text-gray-200">AI DETECTOR</a>
-        <a href="#" class="hover:text-gray-200">ABOUT US</a>
-        <a href="#" class="hover:text-gray-200">LEARN</a>
-        <a href="#" class="bg-indigo-700 text-white px-4 py-2 rounded-md hover:bg-indigo-800">LOG IN</a>
-        <a href="#" class="bg-transparent border border-white px-4 py-2 rounded-md hover:bg-indigo-100 hover:text-indigo-700">TRY NOW</a>
-      </nav>
-    </div>
+    <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 ">
+      <div class="text-xl font-bold text-white">Your Company Name</div>
+      <a href="#">
+        <svg xmlns="<http://www.w3.org/2000/svg>" id="menu-button" class="h-6 w-6 cursor-pointer md:hidden block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </a>
+      <div class="hidden w-full md:flex md:items-center md:w-auto " id="menu">
+          <ul
+            class="
+              text-base text-gray-700
+              pt-4
+              md:flex
+              md:justify-between
+              md:pt-0"
+          >
+            <li>
+              <a href="#" class="hover:text-gray-200 text-white c1">SOLUTIONS</a>
+       
+      
+       
+      
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-200 text-white mx-2 c1">PRICING</a>
+             
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-200 text-white mx-2 c1">FEATURES</a>
+              
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-200 text-white mx-2 c1">AI DETECTOR</a>
+       
+            </li>
+            <li> <a href="#" class="hover:text-gray-200 text-white mx-2 c1">ABOUT US</a></li>
+
+            <li>  <a href="#" class="hover:text-gray-200 text-white mx-2 c1">LEARN</a></li>
+            <li>
+              <a href="#" class="bg-indigo-700 text-white px-4 py-2 rounded-md hover:bg-indigo-800 text-white mx-2 c2">LOG IN</a>
+            </li>
+            <li>
+              <a href="#" class="bg-transparent border border-white px-4 py-2 rounded-md hover:bg-indigo-100 hover:text-indigo-700 text-white mx-5 c2">TRY NOW</a></li>
+          
+          </ul>
+        </div>
+    </nav></div>
   </header>
+
+
+  
+<section style="background-color: rgb(18,14,38);">
   <main class="container mx-auto px-6 py-16">
-    <h1 class="text-4xl font-bold text-center mb-8">Content at Scale</h1>
-    <p class="text-xl text-gray-700 text-center">Not your average AI SEO writer</p>
-    <p class="text-lg text-gray-500 text-center mt-4">Say goodbye to shitty AI SEO content forever and use RankWelt®, our proprietary AI SEO writer. With deep real-time research, machine learning, and multiple LLMs, we generate the most in-depth, humanlike, and helpful SEO content on the planet.</p>
+    <h1 class="text-4xl font-bold text-center mb-8 text-white">Not your average AI SEO writer</h1>
+    <!-- <p class="text-xl text-gray-700 text-center">Not your average AI SEO writer</p> -->
+    <p class="text-lg  text-center mt-4 text-white">Say goodbye to shitty AI SEO content forever and use RankWelt®, our proprietary AI SEO writer. With deep real-time research, machine learning, and multiple LLMs, we generate the most in-depth, humanlike, and helpful SEO content on the planet.</p>
     <div class="flex justify-center mt-8">
-      <a href="#" class="bg-indigo-700 text-white px-4 py-2 rounded-md hover:bg-indigo-800">Experience the power of RankWell®</a>
+      <a href="#" class=" text-white px-4 py-2 rounded-md hover:bg-indigo-800">Experience the power of RankWell®</a>
     </div>
     <div class="flex justify-center mt-16">
       <input type="text" placeholder="Enter your target keyword..." class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full">
@@ -48,38 +95,43 @@
 
     </section>
 
-    <section class="my-10">
-      <h2 class="text-3xl font-bold mb-4">Trusted by over 1,000 SEO content publishers</h2>
-      <p class="text-lg">Increase your content creation efficiency with our powerful AI writing tool.</p>
-    </section>
-  </main>
-
-
-  <main class="container mx-auto px-4 py-10" style="background-color: rgb(246,246,246);">
-    <section class="flex flex-col md:flex-row md:space-x-10">
-        <div class="grid grid-cols-2 gap-3">
-            <h2 class="text-3xl font-bold mb-4">Want to rank well with SEO Al content?</h2>
-            <p class="text-lg mb-6"></p>
-            <section class=" py-8 text-center">
-                <h2 class="text-3xl font-bold mb-4">Straight Outta Al, zero prompts</h2>
-                <p class="text-lg mb-6">Our Al SEO tool generates everything you need to rank well. We've fine-tuned our SEO Al tool tech stack so much, you don't need to guide it at all or build a million prompts. Just feed it a single keyword.</p>
-                <p class="text-lg mb-6 font-bold">(Adding extra context will eff it up. We highly recommend not doing that. All that time you used to spend tweaking the context? No longer needed.)</p>
-              </section>
-            <img src="https://contentatscale.ai/wp-content/uploads/2024/03/rank-img.png" alt="">
-          </div>
-    </section>
-
    
-
-  
   </main>
+</section>
+
+
+ 
+<section style="background-color:rgb(241,241,244)">
+  <main class="container mx-auto py-8 px-4">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="text-left space-y-4">
+        <h2 class="text-3xl font-bold mb-4">Want to rank well with SEO Al content?</h2>
+        <p class="text-lg mb-6"></p>
+        <section class=" py-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Straight Outta Al, zero prompts</h2>
+            <p class="text-lg mb-6">Our Al SEO tool generates everything you need to rank well. We've fine-tuned our SEO Al tool tech stack so much, you don't need to guide it at all or build a million prompts. Just feed it a single keyword.</p>
+            <p class="text-lg mb-6 font-bold">(Adding extra context will eff it up. We highly recommend not doing that. All that time you used to spend tweaking the context? No longer needed.)</p>
+          </section>
+      </div>
+      <div class="relative">
+        <img src="https://contentatscale.ai/wp-content/uploads/2024/03/rank-img.png" alt="">
+        <div class="absolute inset-0 bg-black bg-opacity-25"></div>
+      </div>
+    </section>
+  </main>
+</section>
 
 
 
 
-<br><br><br><br>
 
 <section style="background-color: rgb(246,246,246);">
+  <br><br><br><br>
+
+  
+
+
+
 <main class="container mx-auto py-8 px-4">
   <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div class="text-left space-y-4">
@@ -273,6 +325,15 @@
 
 </section>
 
+
+<script>
+  const button = document.querySelector('#menu-button'); // Hamburger Icon
+const menu = document.querySelector('#menu'); // Menu
+
+button.addEventListener('click', () => {
+menu.classList.toggle('hidden');
+});
+</script>
 </body>
 </html>
 
