@@ -1,340 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Company Name</title>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-   
-    @media only screen and (max-width:768px){
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merchandise Store</title>
+<!-- Include Tailwind CSS from CDN for quick setup -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    .min-h-50 {
+    height: 350px;
+    }
+    @media only screen and (max-width:600px){
+      .min-h-50{
+        height: 430px;
+      }
+      .c1{
+        margin-top: 50px;
+      }
       .c2{
-        display: none;
+        margin-bottom: 30px;
+      }
+    }
+    
+.slider {
+  height: 30rem;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  .slide {
+    position: absolute;
+    top: 0;
+    height: 30rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s;
+    @media (min-width: 600px) and (max-width: 767px) {
+      width: 300px;
+    }
+    @media (min-width: 768px) {
+      width: 370px;
+    }
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .testimonial {
+      width: 90%;
+      min-height: 300px;
+      padding: 10px 15px;
+      position: relative;
+      background-color: #F8F8F8;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      &:hover img{
+        filter: none;
+        transition: filter ease 0.3s
+      }
+      
+      img {
+        width: 14rem;
+        margin: 0 auto;
+        filter: grayscale(1);
+        transition: filter ease 0.3s;
+      }
+      .testimonial__text {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+        color: #666;
+      }
     }
   }
+}
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 400px;
+  .slider__btn {
+    z-index: 10;
+    border: 2px solid blue;
+    background: #fff;
+    font-family: inherit;
+    color: blue;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}
+.testimonial__text{
+     font-size: 20%;
+}
 </style>
+
 </head>
-<body>
-  <header class="font-weight-900 text-white" style="background-color: rgb(18,14,38);">
-    <div class="container flex justify-between items-center px-6 py-4">
-    <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 ">
-      <div class="text-xl font-bold text-white">Your Company Name</div>
-      <a href="#">
-        <svg xmlns="<http://www.w3.org/2000/svg>" id="menu-button" class="h-6 w-6 cursor-pointer md:hidden block text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </a>
-      <div class="hidden w-full md:flex md:items-center md:w-auto " id="menu">
-          <ul
-            class="
-              text-base text-gray-700
-              pt-4
-              md:flex
-              md:justify-between
-              md:pt-0"
-          >
-            <li>
-              <a href="#" class="hover:text-gray-200 text-white c1">SOLUTIONS</a>
-       
+<body class="">
+  
+  
       
-       
-      
+
+
+      <header  class="bg-transparant-800 px-4 py-2 flex justify-between items-center">
+        <div class="container flex justify-between items-center px-6 py-4">
+        <nav class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 ">
+          <img src="data:image/jpeg;base64,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" alt="" class="w-10">
+        
+          <a href="#">
+            <svg xmlns="<http://www.w3.org/2000/svg>" id="menu-button" class="h-6 w-6 cursor-pointer md:hidden block text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </a>
+          <div class="hidden w-full md:flex md:items-center md:w-auto " id="menu">
+              <ul
+                class="
+                  text-base text-gray-700
+                  pt-4
+                  md:flex
+                  md:justify-between
+                  md:pt-0"
+              >
+              <li>
+                <a href="#" class=" hover:text-blue-500 px-3 py-2 rounded-md">Dashboard</a>
             </li>
             <li>
-              <a href="#" class="hover:text-gray-200 text-white mx-2 c1">PRICING</a>
+            <a href="#" class=" hover:text-blue-500 px-3 py-2 rounded-md">Marketplace</a></li>
+           <li> <a href="#" class=" hover:text-blue-500 px-3 py-2 rounded-md">Learn</a></li>
+          <li>  <a href="#" class=" hover:text-blue-500 px-3 py-2 rounded-md">Resources</a></li>
+              </ul>
+              <div class=" md:flex space-x-4">
+                <a href="#" class=" hover:text-blue-500 px-3 py-2 rounded-md c2">#MadeInWebflow</a>
+                <a href="#" class="bg-transparent border border-black px-4 py-2   hover:text-blue-500 px-3 py-2 c1">Contact Sales</a>
+                
+
              
-            </li>
-            <li>
-              <a href="#" class="hover:text-gray-200 text-white mx-2 c1">FEATURES</a>
-              
-            </li>
-            <li>
-              <a href="#" class="hover:text-gray-200 text-white mx-2 c1">AI DETECTOR</a>
-       
-            </li>
-            <li> <a href="#" class="hover:text-gray-200 text-white mx-2 c1">ABOUT US</a></li>
-
-            <li>  <a href="#" class="hover:text-gray-200 text-white mx-2 c1">LEARN</a></li>
-            <li>
-              <a href="#" class="bg-indigo-700 text-white px-4 py-2 rounded-md hover:bg-indigo-800 text-white mx-2 c2">LOG IN</a>
-            </li>
-            <li>
-              <a href="#" class="bg-transparent border border-white px-4 py-2 rounded-md hover:bg-indigo-100 hover:text-indigo-700 text-white mx-5 c2">TRY NOW</a></li>
-          
-          </ul>
-        </div>
-    </nav></div>
-  </header>
-
-
-  
-<section style="background-color: rgb(18,14,38);">
-  <main class="container mx-auto px-6 py-16">
-    <h1 class="text-4xl font-bold text-center mb-8 text-white">Not your average AI SEO writer</h1>
-    <!-- <p class="text-xl text-gray-700 text-center">Not your average AI SEO writer</p> -->
-    <p class="text-lg  text-center mt-4 text-white">Say goodbye to shitty AI SEO content forever and use RankWelt®, our proprietary AI SEO writer. With deep real-time research, machine learning, and multiple LLMs, we generate the most in-depth, humanlike, and helpful SEO content on the planet.</p>
-    <div class="flex justify-center mt-8">
-      <a href="#" class=" text-white px-4 py-2 rounded-md hover:bg-indigo-800">Experience the power of RankWell®</a>
-    </div>
-    <div class="flex justify-center mt-16">
-      <input type="text" placeholder="Enter your target keyword..." class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full">
-      <a href="#" class="bg-indigo-700 text-white px-4 py-2 rounded-md hover:bg-indigo-800 ml-4">TRY IT NOW</a>
-    </div>
-  </main>
-  
-
-  <main class="container mx-auto px-4 py-10">
-    <section class="flex flex-col md:flex-row md:space-x-10">
-    
-        <div class="grid grid-cols-3 gap-3">
-            <img class="w-full aspect-video ..." src="https://contentatscale.ai/wp-content/uploads/2024/03/new-home-img1.jpg" />
-            <img class="w-full h-full aspect-video ..." src="https://contentatscale.ai/wp-content/uploads/2024/03/new-home-img2.jpg" />
-            <img class="w-full aspect-video ..." src="https://contentatscale.ai/wp-content/uploads/2024/03/new-home-img3.jpg" />
+              </div>
+            </div>
            
-          </div>
 
-    </section>
-
-   
-  </main>
-</section>
+        </nav></div>
+      </header>
 
 
+      <div class="bg-blue-600 flex justify-center items-center min-h-50 	">
+        <div class=" px-8 py-12  text-center">
+          <h2 class="text-5xl text-white font-extrabold mb-4">Become smarter in just 5 minutes</h2>
+          <p class="mb-8 text-white">Get the daily email that makes reading the news enjoyable. Stay informed and entertained, for free.</p>
+      
+      
+          <form class="flex flex-col justify-center sm:flex-row gap-3 w-full">
+      
+
+
+            
+              <input type="email" class="rounded-md px-4 py-2 border border-gray-300 focus:outline-none w-full" placeholder="your@email.com" required>
  
-<section style="background-color:rgb(241,241,244)">
-  <main class="container mx-auto py-8 px-4">
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="text-left space-y-4">
-        <h2 class="text-3xl font-bold mb-4">Want to rank well with SEO Al content?</h2>
-        <p class="text-lg mb-6"></p>
-        <section class=" py-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Straight Outta Al, zero prompts</h2>
-            <p class="text-lg mb-6">Our Al SEO tool generates everything you need to rank well. We've fine-tuned our SEO Al tool tech stack so much, you don't need to guide it at all or build a million prompts. Just feed it a single keyword.</p>
-            <p class="text-lg mb-6 font-bold">(Adding extra context will eff it up. We highly recommend not doing that. All that time you used to spend tweaking the context? No longer needed.)</p>
-          </section>
-      </div>
-      <div class="relative">
-        <img src="https://contentatscale.ai/wp-content/uploads/2024/03/rank-img.png" alt="">
-        <div class="absolute inset-0 bg-black bg-opacity-25"></div>
-      </div>
-    </section>
-  </main>
-</section>
+              <button type="submit" class="sm:w-1/4 h-12 text-white bg-blue-500 rounded-lg shadow transition-all duration-300 ease-in-out hover:bg-red-700" onclick="window.location.href='form.html';">Subscribe</button>
+          </form>
+            </div>
+            </div>
+
+            <section class="font-sans">
+                <div class="container mx-auto px-4 py-8">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="rounded-lg overflow-hidden">
+                      <img src="https://20627419.fs1.hubspotusercontent-na1.net/hub/20627419/hubfs/GIF-Mar-15-2024-05-44-04-3691-PM.gif?width=903&height=450&name=GIF-Mar-15-2024-05-44-04-3691-PM.gif" alt="Lustron house" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-gray-100 rounded-lg shadow-md p-4">
+                      <h2 class="text-xl font-bold mb-4">How America's Affordable House of the Future Failed</h2>
+                      <p>The all-steel Lustron was supposed to be an elixir for many of the housing problems we still face today.  Don't get too judgy, parents teens aren't the only ones with a screen time problem.</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At illum nulla odio recusandae harum veritatis deleniti? Quisquam iusto vel expedita porro officia debitis deserunt numquam doloribus ipsum molestiae qui, distinctio ex, dolore quos maiores voluptates, nam magni cum dolor fuga laborum. Tenetur consequatur quaerat itaque quo laudantium numquam inventore commodi magnam harum. Ab numquam vel ipsum, odio dolor animi debitis esse soluta ducimus nisi blanditiis aperiam veniam quidem et nobis nesciunt ipsam porro similique! Modi harum iure, eaque facilis deserunt sapiente corporis quaerat, asperiores inventore consequuntur enim aspernatur odit quas similique! Excepturi labore nostrum quas saepe numquam quae ipsum inventore.</p>
+                    </div>
+                  </div>
+                </div>
+                </section>
 
 
-
-
-
-<section style="background-color: rgb(246,246,246);">
-  <br><br><br><br>
-
+                <section class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-10 gap-x-10 mt-10 mb-5 ml-20 mr-20">
   
 
+                    <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                      <a href="#">
+                        <img src="https://20627419.fs1.hubspotusercontent-na1.net/hub/20627419/hubfs/share.png?width=602&height=300&name=share.png" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                        <div class="px-4 py-3 w-72">
+                         
+                          <p class="text-lg font-bold text-black  block capitalize">I tried a Big Tech diet. It didn’t go well</p>
+                          <div class=" items-center">
+                            <p class="text-lg font-semibold text-black cursor-auto my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dicta. Dignissimos rerum laborum ipsa blanditiis.</p>
+                          
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  
+                    <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                      <a href="#">
+                        <img src="https://20627419.fs1.hubspotusercontent-na1.net/hub/20627419/hubfs/eiffelgif.gif?width=602&height=300&name=eiffelgif.gif" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                        <div class="px-4 py-3 w-72">
+                         
+                          <p class="text-lg font-bold text-black  block capitalize">The con man who sold the Eiffel Tower — twice</p>
+                          <div class="flex items-center">
+                           <p class="text-lg font-semibold text-black cursor-auto my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dicta. Dignissimos rerum laborum ipsa blanditiis.</p>
+                          
+                          
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                 
+                    <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                      <a href="#">
+                        <img src="https://20627419.fs1.hubspotusercontent-na1.net/hub/20627419/hubfs/clock.gif?width=602&height=300&name=clock.gif" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                        <div class="px-4 py-3 w-72">
+                         
+                          <p class="text-lg font-bold text-black  block capitalize">Why you almost never see a clock at the mall</p>
+                          <div class="flex items-center">
+                           <p class="text-lg font-semibold text-black cursor-auto my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dicta. Dignissimos rerum laborum ipsa blanditiis.</p>
+                          
+                          
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                
+                    <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                      <a href="#">
+                        <img src="https://20627419.fs1.hubspotusercontent-na1.net/hub/20627419/hubfs/GIF-1-ezgif.com-crop.webp?width=602&height=300&name=GIF-1-ezgif.com-crop.webp" alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                        <div class="px-4 py-3 w-72">
+                         
+                          <p class="text-lg font-bold text-black  block capitalize">The surreal life of a professional bridesmaid</p>
+                          <div class="flex items-center">
+                           <p class="text-lg font-semibold text-black cursor-auto my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dicta. Dignissimos rerum laborum ipsa blanditiis.</p>
+                          
+                          
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                   
+                  
+                  
+                  
+                  </section>
 
 
-<main class="container mx-auto py-8 px-4">
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="text-left space-y-4">
-      <h6 style="color: rgb(101,2,196);font-weight: 500;">Deep-Dive Research</h6>
-      <h3 class="text-3xl font-bold mb-4">
-        No other AI SEO tool puts together an entire database for every article, except RankWell.
-      </h3>
-      <p class="text-gray-700">Our proprietary AI SEO tool conducts real-time crawling of all the top-ranking content, news articles, social content, and everything that surrounds your given topic, building out an incredibly advanced custom database for every blog post. Say "rank well, 5x fast." Because that's what will happen when you start using RankWell by Content at Scale.</p>
-      
-    </div>
-    <div class="relative">
-      <iframe width="100%" height="315" src="https://contentatscale.ai/wp-content/uploads/2024/03/content-at-scale-gif.gif.webp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <div class="absolute inset-0 bg-black bg-opacity-25"></div>
-    </div>
-  </section>
-</main>
-
-<br><br><br>
-<div class="container mx-auto px-4 py-8">
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="flex items-center justify-center">
-      <img src="https://contentatscale.ai/wp-content/uploads/2024/03/seo-writer.png.webp" alt="Bank well" class="rounded-lg shadow-md w-full h-full object-cover"> 
-    </div>
-    <div class="text-left space-y-4 mt-5">
-      <h2 class="text-3xl font-bold text-purple-600">Rank well...not just today, but tomorrow, too.</h2>
-      <p class="text-gray-700">Today all my websites within the same search console account got clapped... More than 10 niches websites, I used many Al writers, ChatGPT, Claude, Perplexity Pro, ZimmWriter, and nothing survived. What about you?</p>
-      <p class="text-gray-700">Ditch your fruitless trials of the thousands of bulk SEO AI content writing tools out there built to spam Google. You might as well name all those other tools RankLoss. We're one of the ONLY SEO AI writers out there consistently fine-tuning our proprietary stack to generate better and better content that hits the mark, and truly meets Google's #1 requirement of "helpful." useful, reader-friendly content. You won't ever see your site go down if you're tapping into the power of Rank Well for on-point content.</p>
-     
-    </div>
-  </section>
-
-</div>
+                  <div class="bg-blue-600 flex justify-center items-center min-h-60 	">
+                    <div class="container mx-auto px-4 py-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex items-center">
+                          <div class=" p-4 ">
+                            <h2 class="text-4xl text-white font-bold mb-4 ">Want to sell your own website templates?</h2>
+                            <p class="text-gray-700 mb-8">We are always looking for the right talent to join our marketplace.  If you have high-quality, well-coded website templates, we want to hear from you!</p>
+                            <!-- <a href="#" class="text-blue-500 hover:text-blue-700 underline">Check out the review process and guidelines to get started selling your own website templates.</a> -->
+                          </div>
+                          <div class="rounded-lg overflow-hidden">
+                            <img src="https://assets-global.website-files.com/5e593fb060cf87bbaf75dd20/5e724ffc58686e74deae0b38_CTA%20Image-min.png" alt="Ecommerce website template" class="w-full h-full object-cover">
+                          </div>
+                        </div>
+                      </div>
+                      </div>
 
 
-<main class="container mx-auto py-8 px-4">
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="text-left space-y-4">
-      <h6 style="color: rgb(101,2,196);font-weight: 500;">IT REALLY WORKS</h6>
-      <h2 class="text-3xl font-bold mb-4">Want proof our AI SEO tool works?</h2>
-      <p class="text-gray-700"> Marcus Campbell, known as the Affiliate Marketing Dude on YouTube (200k subscribers), published over 1,000 blogs using Content at Scale's RankWell. 95% of them, he didn't even edit! The result? He decreased his SEO content costs from hundreds to just $15/article, decreased content production timelines from 1.5 months to just four days, and started earning rankings and traffic in 10 days. Boom.</p>
+                      <section class="testimonials container mx-auto px-4 py-8">
+                        <div class="slider">
+                          <div class="slide">
+                            <div class="testimonial">
+                             
+                              
+                        
+                                    <!-- Article -->
+                                    <article class="overflow-hidden rounded-lg shadow-lg">
+                        
+                                        <a href="#">
+                                            <iframe  src="https://www.youtube.com/embed/U-V86EZneCI?si=AG0dFNZXujYV20Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </a>
+                        
+                                        <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                            <h1 class="text-lg">
+                                                <a class="no-underline hover:underline text-black" href="#">
+                                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis ex omnis, consectetur libero vitae!
+                                                </a>
+                                            </h1>
+                                          
+                                        </header>
+                        
+                                    
+                        
+                                    </article>
+                                    <!-- END Article -->
+                        
+                                
+                    
+                    
+                            </div>
+                          </div>
+                      
+                          <div class="slide">
+                            <div class="testimonial">
+                                <article class="overflow-hidden rounded-lg shadow-lg">
+                        
+                                    <a href="#">
+                                        <iframe  src="https://www.youtube.com/embed/U-V86EZneCI?si=AG0dFNZXujYV20Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </a>
+                    
+                                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                        <h1 class="text-lg">
+                                            <a class="no-underline hover:underline text-black" href="#">
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis ex omnis, consectetur libero vitae!
+                                            </a>
+                                        </h1>
+                                      
+                                    </header>
+                    
+                                
+                    
+                                </article>
+                            </div>
+                          </div>
+                      
+                          <div class="slide">
+                            <div class="testimonial">
+                                <article class="overflow-hidden rounded-lg shadow-lg">
+                        
+                                    <a href="#">
+                                        <iframe  src="https://www.youtube.com/embed/U-V86EZneCI?si=AG0dFNZXujYV20Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </a>
+                    
+                                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                        <h1 class="text-lg">
+                                            <a class="no-underline hover:underline text-black" href="#">
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis ex omnis, consectetur libero vitae!
+                                            </a>
+                                        </h1>
+                                      
+                                    </header>
+                    
+                                
+                    
+                                </article>
+                            </div>
+                          </div>
+                      
+                          <div class="slide">
+                            <div class="testimonial">
+                                <article class="overflow-hidden rounded-lg shadow-lg">
+                        
+                                    <a href="#">
+                                        <iframe  src="https://www.youtube.com/embed/U-V86EZneCI?si=AG0dFNZXujYV20Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </a>
+                    
+                                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                        <h1 class="text-lg">
+                                            <a class="no-underline hover:underline text-black" href="#">
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis ex omnis, consectetur libero vitae!
+                                            </a>
+                                        </h1>
+                                      
+                                    </header>
+                    
+                                
+                    
+                                </article>
+                            </div>
+                          </div>
+                      
+                          <div class="slide">
+                            <div class="testimonial">
+                                <article class="overflow-hidden rounded-lg shadow-lg">
+                        
+                                    <a href="#">
+                                        <iframe  src="https://www.youtube.com/embed/U-V86EZneCI?si=AG0dFNZXujYV20Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </a>
+                    
+                                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                        <h1 class="text-lg">
+                                            <a class="no-underline hover:underline text-black" href="#">
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis ex omnis, consectetur libero vitae!
+                                            </a>
+                                        </h1>
+                                      
+                                    </header>
+                    
+                                
+                    
+                                </article>
+                            </div>
+                          </div>
+                      
+                          <div class="slide">
+                            <div class="testimonial">
+                                <article class="overflow-hidden rounded-lg shadow-lg">
+                        
+                                    <a href="#">
+                                        <iframe  src="https://www.youtube.com/embed/U-V86EZneCI?si=AG0dFNZXujYV20Y7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </a>
+                    
+                                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                        <h1 class="text-lg">
+                                            <a class="no-underline hover:underline text-black" href="#">
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis ex omnis, consectetur libero vitae!
+                                            </a>
+                                        </h1>
+                                      
+                                    </header>
+                    
+                                
+                    
+                                </article>
+                            </div>
+                          </div>
+                      
+                        <div class="btns">
+                          <button class="slider__btn slider__btn--left">
+                      
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill='blue'><path d="M16.4 18.2c0-.4-.1-.7-.4-.9L11.4 13c-.5-.5-.5-1.4 0-1.9L16 6.8c.3-.2.4-.6.4-.9 0-1.1-1.3-1.7-2.1-.9l-6.8 6.2c-.6.5-.6 1.4 0 1.9l6.8 6.2c.8.5 2.1-.1 2.1-1.1z"></path></g></svg>
+                      
+                      </button>
+                          <button class="slider__btn slider__btn--right">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill='blue'><path d="M7.6 5.8c0 .4.1.7.4.9l4.6 4.3c.5.5.5 1.4 0 1.9L8 17.2c-.3.2-.4.6-.4.9 0 1.1 1.3 1.7 2.1.9l6.8-6.2c.6-.5.6-1.4 0-1.9l-6.8-6c-.8-.7-2.1-.1-2.1.9z"></path></g></svg>
+                      </button>
+                        </div>
+                          
+                        </div>
+                      </section>
 
 
-      <div class="grid grid-cols-2 gap-4">
-        <div class="flex items-center space-x-2">
-            <span class="text-3xl font-bold font-bold" style="color: rgb(176,70,238);">$</span>
-            <h3 class="text-3xl font-bold font-bold" style="color: rgb(176,70,238);">1000s</h3>
-            
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-3xl font-bold"  style="color: rgb(176,70,238);">90%</span>
-          
-          </div>
-          
-      </div>
 
-      <div class="grid grid-cols-2 gap-4">
-        <div class="flex items-center space-x-2">
-           
-           
-            <p class="text-lg text--700">IN CONTENT SAVINGS</p>
-          </div>
-          <div class="flex items-center space-x-2">
-          
-            <p class="text-lg text-gray-700">TIME SAVED</p>
-          </div>
-          
-      </div>
-
-     
-      
-     
-    </div>
-    <div class="relative">
-      <img src="https://contentatscale.ai/wp-content/uploads/2023/09/marcus-campbell-case-study.jpg.webp" alt="Content at Scale" class="rounded-lg shadow-md w-full h-full object-cover"> 
-    </div>
-  </section>
-</main>
-
-
-
-
-</section>
-
-<section style="background-color: rgb(30,2,60);">
-  <main class="container mx-auto py-8 px-4">
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="text-left space-y-4">
-  
-  
-        <img src="https://contentatscale.ai/wp-content/uploads/2024/03/tool-1.png.webp" alt="Content at Scale" class="rounded-lg shadow-md w-full h-full object-cover"> 
-  
-  
-       
-  
-     
-  
-     
-  
-       
-        
-       
-      </div>
-      <div class="relative">
-       <!-- <br><br><br><br><br><br><br> -->
-        <h6 style="color: rgb(101,2,196);font-weight: 500;">AI SEO TOOL</h6>
-        <h2 class="text-3xl font-bold mb-4 text-white">Actual worth-a-shit SEO AI content</h2>
-        <br>
-        <p class=" text-white">Our AI SEO tool writes original long-form content that your readers will actually want to read. Generate 3,000+ word articles from a single keyword, YouTube Video, podcast, URL, or doc in 5 minutes. Personalized to your exact writing style with our Custom Tone of Voice capabilities, where our AI learns your style.
-    
-            AI SEO TOOL
-            Every SEO content tool you ever need combined into one
-            Strategize and generate an entire month of rankworthy SEO content in minutes with our complete AI SEO content automation platform, RankWell. From topic reports to optimization audits, in-depth topic clustering and keyword analysis, all the way to deeply researched SEO content generated with our custom-built multi-LLM stack, our AI SEO writer has everything you need to get content done.
-            
-            </p>
-  
-      </div>
-    </section>
-  </main>
-
-
-  <main class="container mx-auto py-8 px-4">
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="text-left space-y-4">
-  
-  
-        <h6 style="color: rgb(101,2,196);font-weight: 500;">AI SEO TOOL</h6>
-        <h2 class="text-3xl font-bold mb-4 text-white">Every SEO content tool you ever need combined into one</h2>
-        <br>
-        <p class=" text-white">Strategize and generate an entire month of rankworthy SEO content in minutes with our complete AI SEO content automation platform, RankWell. From topic reports to optimization audits, in-depth topic clustering and keyword analysis, all the way to deeply researched SEO content generated with our custom-built multi-LLM stack, our AI SEO writer has everything you need to get content done.
-            
-            </p>
-  
-  
-       
-  
-     
-  
-     
-  
-       
-        
-       
-      </div>
-      <div class="relative">
-    
-        <img src="https://contentatscale.ai/wp-content/uploads/2024/03/rankwell-feature-image-1.png.webp" alt="Content at Scale" class="rounded-lg shadow-md w-full h-full object-cover"> 
-       
-      </div>
-    </section>
-  </main>
-</section>
-
-<section style="background-color:rgb(246,246,246);">
-  <div class="container mx-auto px-4 py-8 text-center">
-    <h6 style="color: rgb(101,2,196);font-weight: 500;">LEADERSHIP</h6>
-    <h2 class="text-3xl font-bold mb-4 ">Created by humans with real skin in the game</h2>
-    <h6>We’re working around-the-clock to build the best AI SEO content solution.</h6>
-  </div>
-
-  <main class="container mx-auto py-8 px-4">
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="text-left space-y-4 " >
-        <div class="grid grid-cols-4 gap-4">
-          <img src="https://contentatscale.ai/wp-content/uploads/2024/03/justin.png.webp" alt="Content at Scale" class="rounded-lg shadow-md w-full h-full object-cover"> 
-
-          <img src="https://contentatscale.ai/wp-content/uploads/2024/03/julia-mccoy.png.webp" alt="Content at Scale" class="rounded-lg shadow-md w-full h-full object-cover mt-16"> 
-        </div>
-        <div class="grid grid-cols-4 gap-4">
-          <img src="https://contentatscale.ai/wp-content/uploads/2024/03/jeff-joyce.png.webp" alt="Content at Scale" class="rounded-lg shadow-md w-full h-full object-cover"> 
-
-         
-        </div>
-      </div>
-      <div class="relative">
-    
-        <p class="text-black-700 "><span style="font-weight: 700;">Justin McGill, CEO </span>, has been a long-time SEO, entrepreneur, and innovator (since 2008). In the 2020s, Justin saw the future of AI and how it would impact content creation. He built the dream blogging tool he needed, Content at Scale - the world’s first long form SEO focused AI writing platform.
-            
-        </p>
-        <br><br>
-        <p class="text-black-700 "><span style="font-weight: 700;">Julia McCoy, President and Partner,  </span>was anti-AI because most SEO AI content tools were…well, super shitty. She used to have an agency with 100 writers and 5,000 content clients, so she knows a little bit. In January of 2023, she joined Content at Scale when it was a three-month old baby–then became partner after seeing it change thousands of publishers’ lives.
-            
-        </p>
-        <br><br>
-        <p class="text-black-700 "><span style="font-weight: 700;">Jeff Joyce, AI Director</span>, has been working in marketing since Tom invented Myspace. He built up his own video production agency, leaning heavily into the explosion of AI and testing every tool until he landed on the best AI SEO content tool… Content at Scale.
-            
-        </p>
-       
-      </div>
-    </section>
-  </main>
-
-</section>
-
-
-<script>
-  const button = document.querySelector('#menu-button'); // Hamburger Icon
-const menu = document.querySelector('#menu'); // Menu
-
-button.addEventListener('click', () => {
-menu.classList.toggle('hidden');
-});
-</script>
+<script src="/script.js"></script>
 </body>
 </html>
-
-
